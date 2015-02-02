@@ -29,7 +29,7 @@ class CurlInteractor implements \Frlnc\Slack\Contracts\Http\Interactor {
         $request = $this->prepareRequest($url, $urlParameters, $headers);
 
         curl_setopt($request, CURLOPT_POST, count($postParameters));
-        curl_setopt($request, CURLOPT_POSTFIELDS, http_build_query($postParameters));
+        curl_setopt($request, CURLOPT_POSTFIELDS, $postParameters);
 
         return $this->executeRequest($request);
     }
